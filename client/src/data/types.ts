@@ -1,14 +1,15 @@
 export interface ProductPrice {
-    currency: String,
-    amount: Number,
-    decimals: Number
+	currency: string
+	amount: number
+	decimals: number
 }
 
 export interface ProductDataType {
-    id: String,
-    tittle: String,
-    price: ProductPrice,
-    picture: String,
-    condition: String,
-    free_shipping: Boolean
+	id: string
+	tittle: string
+	price: ProductPrice
+	picture: string
+	condition: string
+	free_shipping: boolean
+	location: string
 }

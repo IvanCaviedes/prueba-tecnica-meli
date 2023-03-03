@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { AppContext } from "app/appContext";
-import { AppValuesType } from "app/types";
+import { useContext } from 'react'
+import { AppContext } from 'app/appContext'
 
-export const useApp = () => useContext(AppContext) as AppValuesType
+export const useApp = () => useContext(AppContext)

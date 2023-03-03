@@ -24,7 +24,6 @@ const Component = () => {
 
 	const existCategories = categories.length !== 0
 
-
 	useEffect(() => {
 		GetItemDetalle({ id }, (err) => {
 			console.log(err)

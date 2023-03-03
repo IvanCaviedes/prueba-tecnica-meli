@@ -21,7 +21,7 @@ const SectionDetailProduct = ({ item }: SectionDetailProductType) => {
 						{condition} - {sold_quantity} vendidos
 					</span>
 					<p className="product-info-tittle">{tittle}</p>
-					<p className='product-info-price'>
+					<p className="product-info-price">
 						{currencyFormatter({
 							currency: price.currency,
 							value: price.amount,
@@ -33,9 +33,9 @@ const SectionDetailProduct = ({ item }: SectionDetailProductType) => {
 				</div>
 			</div>
 			<div className="product-description">
-				<div className='description'>
+				<div className="description">
 					<h3>Descripción del producto</h3>
-					<p className='text'>{description}</p>
+					<p className="text">{description}</p>
 				</div>
 			</div>
 		</div>

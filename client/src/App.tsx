@@ -1,12 +1,12 @@
-import MyRouter from "routes";
-import { AppProvider } from "app/appContext";
+import MyRouter from 'routes'
+import { AppProvider } from 'app/appContext'
 
-function App() {
-  return (
-    <AppProvider>
-      <MyRouter />
-    </AppProvider>
-  )
+const App = () => {
+	return (
+		<AppProvider>
+			<MyRouter />
+		</AppProvider>
+	)
 }
 
 export default App

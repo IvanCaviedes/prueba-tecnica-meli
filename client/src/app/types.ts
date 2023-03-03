@@ -1,53 +1,68 @@
-import { ProductDataType } from "data/types";
-import { ReactNode } from "react";
+/* eslint-disable camelcase */
+import { type ProductDataType } from 'data/types'
+import { type ReactNode } from 'react'
 
 export interface AuthorType {
-    name: String;
-    lastname: String;
+	name: string
+	lastname: string
 }
 
 export interface SearchResultType {
-    author: AuthorType;
-    items: ProductDataType[];
-    categories: string[]
+	author: AuthorType
+	items: ProductDataType[]
+	categories: string[]
 }
 
 export interface AppProviderProps {
-    children: ReactNode
+	children: ReactNode
 }
 
-export type AppContextValue = {
-
+export interface handleSearchTypes {
+	search: string
 }
-export type handleSearchTypes = {
-    search: string
-}
-export type handleDetalleTypes = {
-    id: string
+export interface handleDetalleTypes {
+	id: string
 }
 
 export interface ProductDataDetailType extends ProductDataType {
-    sold_quantity: number;
-    description: string;
+	sold_quantity: number
+	description: string
 }
 
 export interface DetailItemType {
-    author: AuthorType;
-    item: ProductDataDetailType
+	author: AuthorType
+	item: ProductDataDetailType
 }
 
-
-export type ErrCallbackType = (err: { [key: string]: string }) => void
-
-export type AppValuesType = {
-    loading: boolean,
-    productList: SearchResultType | null,
-    SearchProduct: (params: handleSearchTypes, errorCallback?: ErrCallbackType) => void
-    GetItemDetalle: (params: handleDetalleTypes, errorCallback?: ErrCallbackType) => void
-    itemDetalle: DetailItemType | null
+export const itemEmptyDetalle: ProductDataDetailType = {
+	condition: '',
+	description: '',
+	free_shipping: false,
+	id: '',
+	location: '',
+	picture: '',
+	price: {
+		amount: 0,
+		currency: 'USD',
+		decimals: 0,
+	},
+	sold_quantity: 0,
+	tittle: '',
 }
 
+export type ErrCallbackType = (err: Record<string, string>) => void
 
-
-
-
+export interface AppValuesType {
+	loading: boolean
+	productList: SearchResultType | null
+	SearchProduct: (
+		params: handleSearchTypes,
+		errorCallback?: ErrCallbackType
+	) => void
+	GetItemDetalle: (
+		params: handleDetalleTypes,
+		errorCallback?: ErrCallbackType
+	) => void
+	itemDetalle: DetailItemType | null
+	clearProductList: () => void
+}
