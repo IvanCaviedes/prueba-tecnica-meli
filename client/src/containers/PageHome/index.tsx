@@ -1,38 +1,36 @@
-import { Helmet } from "react-helmet"
+import { Helmet } from 'react-helmet'
+import SectionListProducts from 'components/SectionListProducts'
+import Loader from 'components/Loader'
 
-import SectionListProducts from "components/SectionListProducts";
-
-import { DEMO_PRODUCTS } from "data/products";
-import { ProductDataType } from "data/types";
-
-import { useApp } from "hooks/useApp";
-import { useEffect } from "react";
-
-// const PRODUCTS: ProductDataType[] = DEMO_PRODUCTS
+import { useApp } from 'hooks/useApp'
+import BreadCrumb from 'components/Breadcrumb'
 
 const Home = () => {
+	const { productList, loading } = useApp()
 
-   const { productList, SearchProduct } = useApp()
+	const products = productList?.items != null ? productList?.items : []
+	const categories =
+		productList?.categories != null ? productList?.categories : []
+	const existCategories = categories.length !== 0
 
-   let PRODUCTS = productList?.items || []
+	if (loading) {
+		return <Loader />
+	}
 
-   useEffect(() => {
-      SearchProduct({ search: 'camisas' }, (error) => {
-         console.log(error);
-      })
-   }, [])
-
-
-   return (
-      <>
-         <Helmet >
-            <title>Buenas tardes</title>
-         </Helmet>
-         <SectionListProducts
-            className=""
-            products={PRODUCTS}
-         />
-      </>
-   )
+	return (
+		<div
+			className="container"
+			style={{ padding: existCategories ? '' : '10px' }}
+		>
+			<Helmet>
+				<title>Prueba tecnica Meli</title>
+			</Helmet>
+			<BreadCrumb
+				className={existCategories ? '' : 'none'}
+				categories={categories}
+			/>
+			<SectionListProducts className="" products={products} />
+		</div>
+	)
 }
 export default Home
