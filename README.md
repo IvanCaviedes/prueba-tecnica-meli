@@ -28,6 +28,7 @@ cd ..
 cd server
 npm install
 npm run build
+#correr proyecto en http://localhost:4000/
 node dist/main.js
 ```
 
