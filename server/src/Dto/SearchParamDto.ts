@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator'
 export class SearchParamDTO {
-    @IsNotEmpty()
-    @IsString()
-    public search: string;
+  @IsNotEmpty()
+  @IsString()
+  public search: string
 }

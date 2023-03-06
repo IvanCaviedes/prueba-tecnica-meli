@@ -12,6 +12,7 @@ WORKDIR /usr/app/server/
 COPY server/package*.json ./
 RUN npm install
 COPY server/ .
+ENV NODE_ENV = Dproduction
 RUN npm run build
 
 CMD [ "node", "dist/main.js" ]
